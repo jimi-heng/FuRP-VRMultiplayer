@@ -34,23 +34,23 @@ public class NetworkConnect : MonoBehaviour
         transport.SetHostRelayData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port, 
             allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData);
 
-        CreateLobbyOptions lobbyOptions = new CreateLobbyOptions();
-        lobbyOptions.IsPrivate = false;
-        lobbyOptions.Data = new Dictionary<string, DataObject>();
-        DataObject dataObject = new DataObject(DataObject.VisibilityOptions.Public, newJoinCode);
-        lobbyOptions.Data.Add("JOIN_CODE", dataObject);
+        //CreateLobbyOptions lobbyOptions = new CreateLobbyOptions();
+        //lobbyOptions.IsPrivate = false;
+        //lobbyOptions.Data = new Dictionary<string, DataObject>();
+        //DataObject dataObject = new DataObject(DataObject.VisibilityOptions.Public, newJoinCode);
+        //lobbyOptions.Data.Add("JOIN_CODE", dataObject);
 
-        currentLobby = await LobbyService.Instance.CreateLobbyAsync("Lobby Name", maxConnection, lobbyOptions);
+        //currentLobby = await LobbyService.Instance.CreateLobbyAsync("Lobby Name", maxConnection, lobbyOptions);
 
         NetworkManager.Singleton.StartHost();
     }
 
     public async void Join() 
     {
-        currentLobby = await LobbyService.Instance.QuickJoinLobbyAsync();
-        string relayJoinCode = currentLobby.Data["JOIN_CODE"].Value;
+        //currentLobby = await LobbyService.Instance.QuickJoinLobbyAsync();
+        //string relayJoinCode = currentLobby.Data["JOIN_CODE"].Value;
 
-        JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(relayJoinCode);
+        JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
         transport.SetClientRelayData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port, 
             allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData, allocation.HostConnectionData);

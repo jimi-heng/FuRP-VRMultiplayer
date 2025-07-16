@@ -20,7 +20,7 @@ public class PlayVideo : NetworkBehaviour
     [ClientRpc]
     void PlayVideoClientRpc(double startTime)
     {
-        videoPlayer.time = startTime; // ¾«È·µ½Ãë
+        videoPlayer.time = startTime;
         videoPlayer.Play();
     }
 
