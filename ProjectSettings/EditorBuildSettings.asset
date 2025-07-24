@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/test.unity
     guid: 3732cb89e25421e4ea807bc84a657b6e
+  - enabled: 1
+    path: Assets/Scenes/Volcano.unity
+    guid: d42dafe95b386154ca802b90f444e521
+  - enabled: 1
+    path: Assets/Scenes/Earthquake.unity
+    guid: bae70cc14b7237a42b5394ba8139ca18
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e3aee76b9372917449aef639e2f74814,
       type: 2}
