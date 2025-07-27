@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 5768419122733408881}
   - component: {fileID: 4569579240822823303}
   - component: {fileID: 7087144514986730931}
+  - component: {fileID: 5670112902071433003}
   m_Layer: 0
   m_Name: fire_rocks_ps1ps2_style_lowpoly
   m_TagString: Untagged
@@ -237,7 +238,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20518, y: 0.20518, z: 0.20518}
+  m_LocalScale: {x: 0.32488203, y: 0.32488203, z: 0.32488203}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5086400585739640600}
@@ -555,6 +556,26 @@ MonoBehaviour:
   UseRigidBodyForMotion: 0
   AutoUpdateKinematicState: 0
   AutoSetKinematicOnDespawn: 0
+--- !u!114 &5670112902071433003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286761719379357370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ced07cfc99341a4f9b505c48df0c43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  underWaterDrag: 0
+  underWaterAngularDrag: 1
+  airDrag: 0
+  airAngularDrag: 0.05
+  floatingPower: -0.17
+  maxDepth: 0.5
+  water: {fileID: 0}
 --- !u!1 &5920477243875457714
 GameObject:
   m_ObjectHideFlags: 0

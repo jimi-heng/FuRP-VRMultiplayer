@@ -73,7 +73,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2246693882729255472}
-  - component: {fileID: 3736835724162725619}
   m_Layer: 0
   m_Name: Sketchfab_model
   m_TagString: Untagged
@@ -97,27 +96,6 @@ Transform:
   - {fileID: 249642868121002797}
   m_Father: {fileID: 2724719732947054177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3736835724162725619
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121932454405092585}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4598012737901228472
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +112,7 @@ GameObject:
   - component: {fileID: 6029595475466361559}
   - component: {fileID: 4863977131382517008}
   - component: {fileID: 1103692740953413292}
+  - component: {fileID: 604395330750065308}
   m_Layer: 0
   m_Name: dark_rock_with_lava
   m_TagString: Untagged
@@ -151,7 +130,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.98, y: 0, z: 0}
-  m_LocalScale: {x: 1.7729349, y: 1.7729349, z: 1.7729349}
+  m_LocalScale: {x: 0.27170065, y: 0.27170065, z: 0.27170065}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2246693882729255472}
@@ -204,7 +183,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -417,7 +396,7 @@ MonoBehaviour:
   NetworkRigidbodyBaseExpanded: 0
   UseRigidBodyForMotion: 0
   AutoUpdateKinematicState: 0
-  AutoSetKinematicOnDespawn: 1
+  AutoSetKinematicOnDespawn: 0
 --- !u!114 &1103692740953413292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +448,26 @@ MonoBehaviour:
   m_AllowCollisionOwnershipExchange: 1
   m_MinExchangeVelocityMagitude: 0.025
   spawnLocked: 0
+--- !u!114 &604395330750065308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4598012737901228472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ced07cfc99341a4f9b505c48df0c43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  underWaterDrag: 0
+  underWaterAngularDrag: 1
+  airDrag: 0
+  airAngularDrag: 0.05
+  floatingPower: -0.17
+  maxDepth: 0.5
+  water: {fileID: 0}
 --- !u!1 &7658688767919424137
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +479,7 @@ GameObject:
   - component: {fileID: 7920604994791681494}
   - component: {fileID: 8953985081987365578}
   - component: {fileID: 1723149189499015748}
+  - component: {fileID: 906084217505553377}
   m_Layer: 0
   m_Name: defaultMaterial
   m_TagString: Untagged
@@ -555,3 +555,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &906084217505553377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7658688767919424137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.48403, y: 2, z: 1.802962}
+  m_Center: {x: 0, y: 0, z: 0}

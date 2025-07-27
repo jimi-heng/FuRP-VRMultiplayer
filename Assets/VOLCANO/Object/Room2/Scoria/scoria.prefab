@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 2013145931120338516}
   - component: {fileID: 2848493206153326634}
   - component: {fileID: 4289478298967525675}
+  - component: {fileID: 6211094916048344947}
   m_Layer: 0
   m_Name: scoria
   m_TagString: Untagged
@@ -141,7 +142,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.83, y: 0, z: 0}
-  m_LocalScale: {x: 0.13680539, y: 0.13680539, z: 0.13680539}
+  m_LocalScale: {x: 0.10338121, y: 0.10338121, z: 0.10338121}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9090059331767112627}
@@ -459,6 +460,26 @@ MonoBehaviour:
   m_AllowCollisionOwnershipExchange: 1
   m_MinExchangeVelocityMagitude: 0.025
   spawnLocked: 0
+--- !u!114 &6211094916048344947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901085336980298204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ced07cfc99341a4f9b505c48df0c43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  underWaterDrag: 4.05
+  underWaterAngularDrag: 1
+  airDrag: 0
+  airAngularDrag: 0.05
+  floatingPower: 0.8
+  maxDepth: 0.5
+  water: {fileID: 0}
 --- !u!1 &2612214639154591686
 GameObject:
   m_ObjectHideFlags: 0

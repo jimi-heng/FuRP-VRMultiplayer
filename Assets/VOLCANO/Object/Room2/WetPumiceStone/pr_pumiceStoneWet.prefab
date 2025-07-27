@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d211ffacbc11e0e4b9b554adc741ca83,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.404
+      value: -7.048004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d211ffacbc11e0e4b9b554adc741ca83,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.497
+      value: 1.056
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d211ffacbc11e0e4b9b554adc741ca83,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.355
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d211ffacbc11e0e4b9b554adc741ca83,
         type: 3}
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d211ffacbc11e0e4b9b554adc741ca83,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d211ffacbc11e0e4b9b554adc741ca83,
         type: 3}
@@ -95,6 +95,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4881907169814182486}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d211ffacbc11e0e4b9b554adc741ca83,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2188432204458906124}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: d211ffacbc11e0e4b9b554adc741ca83,
         type: 3}
       insertIndex: -1
@@ -184,7 +188,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8858347250583422052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,4 +448,24 @@ MonoBehaviour:
   NetworkRigidbodyBaseExpanded: 0
   UseRigidBodyForMotion: 0
   AutoUpdateKinematicState: 0
-  AutoSetKinematicOnDespawn: 0
+  AutoSetKinematicOnDespawn: 1
+--- !u!114 &2188432204458906124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644710716087961801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ced07cfc99341a4f9b505c48df0c43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  underWaterDrag: 3
+  underWaterAngularDrag: 1
+  airDrag: 0
+  airAngularDrag: 0.05
+  floatingPower: 35.4
+  maxDepth: 0.5
+  water: {fileID: 0}

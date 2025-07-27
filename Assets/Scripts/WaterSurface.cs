@@ -4,7 +4,7 @@ public class WaterSurface : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
-        Floating floatingScript = other.GetComponent<Floating>();
+        Floating floatingScript = other.GetComponentInParent<Floating>();
         if (floatingScript != null)
         {
             floatingScript.SetFloating();

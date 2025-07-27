@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 5951757485433701986}
   - component: {fileID: 6013945169202722742}
   - component: {fileID: 3500272331471357957}
+  - component: {fileID: 3013021348787434621}
   m_Layer: 0
   m_Name: volcanic_rock_scan
   m_TagString: Untagged
@@ -65,7 +66,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9, y: 0, z: 4.29}
-  m_LocalScale: {x: 0.14619312, y: 0.14619312, z: 0.14619312}
+  m_LocalScale: {x: 0.18581146, y: 0.18581146, z: 0.18581146}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7635789089478863601}
@@ -383,6 +384,26 @@ MonoBehaviour:
   m_AllowCollisionOwnershipExchange: 1
   m_MinExchangeVelocityMagitude: 0.025
   spawnLocked: 0
+--- !u!114 &3013021348787434621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5060067231813462087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ced07cfc99341a4f9b505c48df0c43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  underWaterDrag: 0
+  underWaterAngularDrag: 1
+  airDrag: 0
+  airAngularDrag: 0.05
+  floatingPower: -0.17
+  maxDepth: 0.5
+  water: {fileID: 0}
 --- !u!1 &7325815945449000326
 GameObject:
   m_ObjectHideFlags: 0

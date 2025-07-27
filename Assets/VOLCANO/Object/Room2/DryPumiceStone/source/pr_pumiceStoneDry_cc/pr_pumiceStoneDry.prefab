@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 3916403740075298119}
   - component: {fileID: 3357114351251492542}
   - component: {fileID: 4680638178316092403}
+  - component: {fileID: 4268207054931944415}
   m_Layer: 0
   m_Name: pr_pumiceStoneDry
   m_TagString: Untagged
@@ -141,7 +142,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 12.515903, y: 12.515903, z: 12.515903}
+  m_LocalScale: {x: 8.309563, y: 8.309563, z: 8.309563}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6298589981953573764}
@@ -459,3 +460,23 @@ MonoBehaviour:
   m_AllowCollisionOwnershipExchange: 1
   m_MinExchangeVelocityMagitude: 0.025
   spawnLocked: 0
+--- !u!114 &4268207054931944415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076185657893464166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ced07cfc99341a4f9b505c48df0c43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  underWaterDrag: 3
+  underWaterAngularDrag: 1
+  airDrag: 0
+  airAngularDrag: 0.05
+  floatingPower: 35
+  maxDepth: 0.5
+  water: {fileID: 0}
