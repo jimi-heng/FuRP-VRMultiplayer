@@ -128,7 +128,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _frequency: 11
+    - _frequency: 15
     - _power: 0.1
     - _speed: 8
     m_Colors:
