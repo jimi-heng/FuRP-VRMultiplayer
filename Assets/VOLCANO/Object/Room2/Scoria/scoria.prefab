@@ -142,7 +142,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.83, y: 0, z: 0}
-  m_LocalScale: {x: 0.10338121, y: 0.10338121, z: 0.10338121}
+  m_LocalScale: {x: 0.077795394, y: 0.077795394, z: 0.077795394}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9090059331767112627}
@@ -477,7 +477,7 @@ MonoBehaviour:
   underWaterAngularDrag: 1
   airDrag: 0
   airAngularDrag: 0.05
-  floatingPower: 0.8
+  floatingPower: 5
   maxDepth: 0.5
   water: {fileID: 0}
 --- !u!1 &2612214639154591686
