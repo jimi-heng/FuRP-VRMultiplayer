@@ -129,10 +129,10 @@ Material:
     - _Trigger: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _delayTime: 2
+    - _delayTime: 1
     - _frequency: 20
     - _maxDistance: 3
-    - _moveDistance: 2
+    - _moveDistance: 1
     - _moveSpeed: 1
     - _power: 0.06
     - _speed: 3
