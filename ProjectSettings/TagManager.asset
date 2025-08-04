@@ -9,6 +9,7 @@ TagManager:
   - Anchor
   - PlayerHand
   - Destroyer
+  - testPoke
   layers:
   - Default
   - TransparentFX
