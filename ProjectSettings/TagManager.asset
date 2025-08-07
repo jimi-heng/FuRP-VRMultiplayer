@@ -10,6 +10,10 @@ TagManager:
   - PlayerHand
   - Destroyer
   - testPoke
+  - position1
+  - position2
+  - position3
+  - position
   layers:
   - Default
   - TransparentFX

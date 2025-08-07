@@ -3,11 +3,10 @@ using Unity.Netcode;
 
 public class NetworkTagColorChanger : NetworkBehaviour
 {
-    public string targetTag = "ColorTarget";  // 目标Tag
+    public string targetTag = "ColorTarget"; 
     public Color hoverColor = Color.red;
     public Color defaultColor = Color.white;
 
-    // 网络同步颜色变量，初始默认颜色
     private NetworkVariable<Color> syncedColor = new NetworkVariable<Color>(Color.white);
 
     private void OnEnable()
@@ -27,16 +26,22 @@ public class NetworkTagColorChanger : NetworkBehaviour
 
     private void ApplyColor(Color color)
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("position");
+
         foreach (var obj in targets)
         {
-            Renderer rend = obj.GetComponent<Renderer>();
-            if (rend != null)
-                rend.material.color = color;
+            Renderer[] childRenderers = obj.GetComponentsInChildren<Renderer>(true); 
+
+            foreach (Renderer rend in childRenderers)
+            {
+                if (rend.gameObject.CompareTag(targetTag))
+                {
+                    rend.material.color = color;
+                }
+            }
         }
     }
 
-    // 服务器接收客户端请求，改颜色
     [ServerRpc(RequireOwnership = false)]
     public void ChangeColorServerRpc()
     {
@@ -49,7 +54,6 @@ public class NetworkTagColorChanger : NetworkBehaviour
         syncedColor.Value = defaultColor;
     }
 
-    // 这两个方法供XR Interactable事件调用（客户端调用）
     public void ChangeColor()
     {
         if (IsServer)

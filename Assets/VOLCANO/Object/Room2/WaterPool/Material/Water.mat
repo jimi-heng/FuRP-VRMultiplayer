@@ -141,8 +141,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _down_color: {r: 0.28025985, g: 0.63277465, b: 0.8867924, a: 1}
-    - _up_color: {r: 0.5683072, g: 0.9339623, b: 0.9178304, a: 1}
+    - _down_color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
+    - _up_color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4080969170830378675
