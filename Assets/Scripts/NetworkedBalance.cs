@@ -1,5 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class NetworkedBalance : NetworkBehaviour
 {
@@ -16,23 +17,86 @@ public class NetworkedBalance : NetworkBehaviour
         NetworkVariableReadPermission.Everyone,
         NetworkVariableWritePermission.Server
     );
+    private NetworkVariable<bool> isCheck = new NetworkVariable<bool>(false);
 
     private float currentAngle = 0f;
 
-    void Update()
+    public void StartTest()
     {
         if (IsServer)
         {
-            float leftMass = leftTray.GetTotalMass();
-            float rightMass = rightTray.GetTotalMass();
+            isCheck.Value = true;
+            Invoke(nameof(RefreshCheck), 1.5f);
+        }
+        else
+        {
+            changeCheckServerRpc();
+        }
+    }
 
-            float targetAngle = Mathf.Clamp((rightMass - leftMass) * balanceSensitivity, -maxAngle, maxAngle);
+    [ServerRpc(RequireOwnership =false)]
+    private void changeCheckServerRpc()
+    {
+        isCheck.Value = true;
+        Invoke(nameof(RefreshCheck), 1.5f);
+    }
 
-            syncedAngle.Value = targetAngle; // 服务器写入同步角度
+    void RefreshCheck()
+    {
+        isCheck.Value = false;
+    }
+
+    public void EndTest(SelectEnterEventArgs args)
+    {
+        if (IsServer)
+        {
+            isCheck.Value = true;
+            Rigidbody rb = args.interactableObject.transform.gameObject.GetComponent<Rigidbody>();
+            leftTray.RemoveRb(rb);
+            rightTray.RemoveRb(rb);
+
+            Invoke(nameof(RefreshCheck), 1.5f);
+        }
+        else
+        {
+            var netObj = args.interactableObject.transform.gameObject.GetComponent<NetworkObject>();
+            changeCheckEndServerRpc(netObj.NetworkObjectId);
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void changeCheckEndServerRpc(ulong networkObjectId)
+    {
+        isCheck.Value = true;
+        if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(networkObjectId, out NetworkObject netObj))
+        {
+            Rigidbody rb = netObj.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                leftTray.RemoveRb(rb);
+                rightTray.RemoveRb(rb);
+            }
         }
 
-        // 客户端/服务器：根据同步的角度平滑插值旋转
-        currentAngle = Mathf.Lerp(currentAngle, syncedAngle.Value, Time.deltaTime * lerpSpeed);
-        beam.localRotation = Quaternion.Euler(0,-currentAngle,0);
+        Invoke(nameof(RefreshCheck), 1.5f);
     }
-}
+
+        void Update()
+        {
+            if (isCheck.Value)
+            {
+                if (IsServer)
+                {
+                    float leftMass = leftTray.GetTotalMass();
+                    float rightMass = rightTray.GetTotalMass();
+
+                    float targetAngle = Mathf.Clamp((rightMass - leftMass) * balanceSensitivity, -maxAngle, maxAngle);
+
+                    syncedAngle.Value = targetAngle;
+                }
+
+                currentAngle = Mathf.Lerp(currentAngle, syncedAngle.Value, Time.deltaTime * lerpSpeed);
+                beam.localRotation = Quaternion.Euler(0, -currentAngle, 0);
+            }
+        }
+    }

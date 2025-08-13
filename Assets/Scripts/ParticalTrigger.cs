@@ -5,6 +5,8 @@ public class ParticalTrigger : NetworkBehaviour
 {
     public ParticleSystem Particle1;
     public ParticleSystem Particle2;
+    public ParticleSystem Particle3;
+    public ParticleSystem Particle4;
 
     public void playParticle()
     {
@@ -22,5 +24,7 @@ public class ParticalTrigger : NetworkBehaviour
     {
         Particle1.Play();
         Particle2.Play();
+        Particle3.Play();
+        Particle4.Play();
     }
 }

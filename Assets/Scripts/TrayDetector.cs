@@ -5,24 +5,22 @@ public class TrayDetector : MonoBehaviour
 {
     public List<Rigidbody> objectsOnTray = new List<Rigidbody>();
 
-    private void OnTriggerEnter(Collider other)
+     private void OnTriggerEnter(Collider other)
     {
         if (!IsServer()) return;
 
         Rigidbody rb = other.attachedRigidbody;
-        if (rb != null && !objectsOnTray.Contains(rb))
+        if (rb!= null && !objectsOnTray.Contains(rb))
         {
             objectsOnTray.Add(rb);
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void RemoveRb(Rigidbody rb)
     {
         if (!IsServer()) return;
-
-        Rigidbody rb = other.attachedRigidbody;
-        if (rb != null)
-        {
+        if (objectsOnTray.Contains(rb)) 
+        { 
             objectsOnTray.Remove(rb);
         }
     }
@@ -42,7 +40,6 @@ public class TrayDetector : MonoBehaviour
         }
         return total;
     }
-
     bool IsServer()
     {
         return Unity.Netcode.NetworkManager.Singleton.IsServer;

@@ -3,78 +3,67 @@ using Unity.Netcode;
 
 public class NetworkTagColorChanger : NetworkBehaviour
 {
-    public string targetTag = "ColorTarget"; 
+    public Renderer renderer1;
+    public Renderer renderer2;
+    public Renderer renderer3;
+
     public Color hoverColor = Color.red;
     public Color defaultColor = Color.white;
 
-    private NetworkVariable<Color> syncedColor = new NetworkVariable<Color>(Color.white);
-
-    private void OnEnable()
+    public void changeColor1()
     {
-        syncedColor.OnValueChanged += OnColorChanged;
-    }
-
-    private void OnDisable()
-    {
-        syncedColor.OnValueChanged -= OnColorChanged;
-    }
-
-    private void OnColorChanged(Color oldColor, Color newColor)
-    {
-        ApplyColor(newColor);
-    }
-
-    private void ApplyColor(Color color)
-    {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("position");
-
-        foreach (var obj in targets)
-        {
-            Renderer[] childRenderers = obj.GetComponentsInChildren<Renderer>(true); 
-
-            foreach (Renderer rend in childRenderers)
-            {
-                if (rend.gameObject.CompareTag(targetTag))
-                {
-                    rend.material.color = color;
-                }
-            }
-        }
+        changeColor1ServerRpc();
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void ChangeColorServerRpc()
+    public void changeColor1ServerRpc()
     {
-        syncedColor.Value = hoverColor;
+        changeColor1ClientRpc();
+    }
+
+    [ClientRpc]
+    public void changeColor1ClientRpc()
+    {
+        renderer1.material.color = hoverColor;
+        renderer2.material.color = defaultColor;
+        renderer3.material.color = defaultColor;
+    }
+
+    public void changeColor2()
+    {
+        changeColor2ServerRpc();
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void ResetColorServerRpc()
+    public void changeColor2ServerRpc()
     {
-        syncedColor.Value = defaultColor;
+        changeColor2ClientRpc();
     }
 
-    public void ChangeColor()
+    [ClientRpc]
+    public void changeColor2ClientRpc()
     {
-        if (IsServer)
-        {
-            syncedColor.Value = hoverColor;
-        }
-        else
-        {
-            ChangeColorServerRpc();
-        }
+        renderer1.material.color = defaultColor;
+        renderer2.material.color = hoverColor;
+        renderer3.material.color = defaultColor;
     }
 
-    public void ResetColor()
+    public void changeColor3()
     {
-        if (IsServer)
-        {
-            syncedColor.Value = defaultColor;
-        }
-        else
-        {
-            ResetColorServerRpc();
-        }
+        changeColor3ServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void changeColor3ServerRpc()
+    {
+        changeColor3ClientRpc();
+    }
+
+    [ClientRpc]
+    public void changeColor3ClientRpc()
+    {
+        renderer1.material.color = defaultColor;
+        renderer2.material.color = defaultColor;
+        renderer3.material.color = hoverColor;
     }
 }
