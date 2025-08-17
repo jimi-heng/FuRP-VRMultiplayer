@@ -41,10 +41,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: GLTF_created_0|PixCap Animation_GLTF_created_0
+      name: GLTF_created_0|PixCap Animation_GLTF_created_0 (1)
       takeName: GLTF_created_0|PixCap Animation_GLTF_created_0
-      internalID: 6554746846242499700
-      firstFrame: 0
+      internalID: -8236929891993679830
+      firstFrame: 346
       lastFrame: 475
       wrapMode: 0
       orientationOffsetY: 0
