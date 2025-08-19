@@ -2235,6 +2235,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ash
       objectReference: {fileID: 0}
+    - target: {fileID: 8382189399580506431, guid: 457965ce00780424cbabccf52375fb54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3587,6 +3592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: rhyolitic_tuff_spain
+      objectReference: {fileID: 0}
+    - target: {fileID: 5725416754726896098, guid: e2d49bf6d3ca34143a2cda226af4a229,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6508354357380396204, guid: e2d49bf6d3ca34143a2cda226af4a229,
         type: 3}
@@ -9578,6 +9588,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DisplayStand (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3797115912123915702, guid: c4d2d14bc23c8b34b855866cbeb657e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5315671095163948714, guid: c4d2d14bc23c8b34b855866cbeb657e7,
         type: 3}
       propertyPath: m_text
@@ -10216,6 +10231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: realistic_signboard (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189622537694151380, guid: ab6f1d4b5ee08684ab9d147c9317c937,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7573369424536141029, guid: ab6f1d4b5ee08684ab9d147c9317c937,
         type: 3}
