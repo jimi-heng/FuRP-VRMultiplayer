@@ -968,11 +968,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 2b2c61e2-f6c6-4010-b5d0-4bdb4155e82f
+  cloudProjectId: b33980ea-2c94-4402-814b-95222b1f2234
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: FuRP-VRMultiplayer
-  organizationId: erzhuzi
+  projectName: TestVivox
+  organizationId: asslj
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
