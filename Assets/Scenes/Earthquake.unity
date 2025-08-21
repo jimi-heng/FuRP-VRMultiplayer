@@ -852,7 +852,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c612f3133648c0144855b98c84f19a35, type: 2}
   - {fileID: 2100000, guid: 147d08e1852bcb84682b1623dec7fe54, type: 2}
   - {fileID: 2100000, guid: 058ec8063c348c844b4beabe135d8fd2, type: 2}
-  changeInterval: 0.3
+  changeInterval: 0.6
 --- !u!1 &127313870
 GameObject:
   m_ObjectHideFlags: 0
@@ -12999,7 +12999,7 @@ PrefabInstance:
     - target: {fileID: 45354441135186804, guid: 703c4e6d140af00449390274be0bb39d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.53
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 45354441135186804, guid: 703c4e6d140af00449390274be0bb39d,
         type: 3}
