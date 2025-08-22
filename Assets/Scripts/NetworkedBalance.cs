@@ -26,7 +26,7 @@ public class NetworkedBalance : NetworkBehaviour
         if (IsServer)
         {
             isCheck.Value = true;
-            Invoke(nameof(RefreshCheck), 1.5f);
+            Invoke(nameof(RefreshCheck), 1f);
         }
         else
         {
@@ -38,7 +38,7 @@ public class NetworkedBalance : NetworkBehaviour
     private void changeCheckServerRpc()
     {
         isCheck.Value = true;
-        Invoke(nameof(RefreshCheck), 1.5f);
+        Invoke(nameof(RefreshCheck), 1f);
     }
 
     void RefreshCheck()
@@ -55,7 +55,7 @@ public class NetworkedBalance : NetworkBehaviour
             leftTray.RemoveRb(rb);
             rightTray.RemoveRb(rb);
 
-            Invoke(nameof(RefreshCheck), 1.5f);
+            Invoke(nameof(RefreshCheck), 1f);
         }
         else
         {
@@ -78,7 +78,7 @@ public class NetworkedBalance : NetworkBehaviour
             }
         }
 
-        Invoke(nameof(RefreshCheck), 1.5f);
+        Invoke(nameof(RefreshCheck), 1f);
     }
 
         void Update()

@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45354441135186804}
   - component: {fileID: 1428363760308112536}
-  - component: {fileID: 5129526119223672348}
+  - component: {fileID: 1560115787920791583}
   m_Layer: 0
   m_Name: layers_of_the_earth
   m_TagString: Untagged
@@ -151,7 +151,7 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 1
---- !u!114 &5129526119223672348
+--- !u!114 &1560115787920791583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,12 +160,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551184214038813543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9734a1df1db3de46bbedf392948e71d, type: 3}
+  m_Script: {fileID: 11500000, guid: a62d8ed7469a7a14aa0a5352c131d676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+  target: {fileID: 45354441135186804}
   moveDistance: 4
-  moveDuration: 0.7
+  moveDuration: 0.4
 --- !u!1 &1647675738828407279
 GameObject:
   m_ObjectHideFlags: 0
