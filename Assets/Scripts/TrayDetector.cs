@@ -4,15 +4,27 @@ using UnityEngine;
 public class TrayDetector : MonoBehaviour
 {
     public List<Rigidbody> objectsOnTray = new List<Rigidbody>();
+    public bool enter = false;
 
      private void OnTriggerEnter(Collider other)
     {
         if (!IsServer()) return;
 
         Rigidbody rb = other.attachedRigidbody;
-        if (rb!= null && !objectsOnTray.Contains(rb))
+        if (rb!= null && !objectsOnTray.Contains(rb)&&enter)
         {
             objectsOnTray.Add(rb);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!IsServer()) return;
+
+        Rigidbody rb = other.attachedRigidbody;
+        if (rb!=null && objectsOnTray.Contains(rb))
+        {  
+            objectsOnTray.Remove(rb);
         }
     }
 

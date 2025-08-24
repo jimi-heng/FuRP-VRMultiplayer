@@ -11,22 +11,25 @@ public class NetworkedBalance : NetworkBehaviour
     public float maxAngle = 30f;
     public float balanceSensitivity = 5f;
     public float lerpSpeed = 2f;
+    public float time = 1f;
 
     private NetworkVariable<float> syncedAngle = new NetworkVariable<float>(
         0f,
         NetworkVariableReadPermission.Everyone,
         NetworkVariableWritePermission.Server
     );
-    private NetworkVariable<bool> isCheck = new NetworkVariable<bool>(false);
-
     private float currentAngle = 0f;
+
+    private float leftMass = 0f;
+    private float rightMass = 0f;
 
     public void StartTest()
     {
         if (IsServer)
         {
-            isCheck.Value = true;
-            Invoke(nameof(RefreshCheck), 1f);
+            leftTray.enter = true;
+            rightTray.enter = true;
+            Invoke(nameof(RefreshCheck), time);
         }
         else
         {
@@ -37,25 +40,24 @@ public class NetworkedBalance : NetworkBehaviour
     [ServerRpc(RequireOwnership =false)]
     private void changeCheckServerRpc()
     {
-        isCheck.Value = true;
-        Invoke(nameof(RefreshCheck), 1f);
+        leftTray.enter = true;
+        rightTray.enter=true;
+        Invoke(nameof(RefreshCheck), time);
     }
 
     void RefreshCheck()
     {
-        isCheck.Value = false;
+        leftTray.enter=false;
+        rightTray.enter=false;
     }
 
     public void EndTest(SelectEnterEventArgs args)
     {
         if (IsServer)
         {
-            isCheck.Value = true;
             Rigidbody rb = args.interactableObject.transform.gameObject.GetComponent<Rigidbody>();
             leftTray.RemoveRb(rb);
             rightTray.RemoveRb(rb);
-
-            Invoke(nameof(RefreshCheck), 1f);
         }
         else
         {
@@ -67,7 +69,6 @@ public class NetworkedBalance : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void changeCheckEndServerRpc(ulong networkObjectId)
     {
-        isCheck.Value = true;
         if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(networkObjectId, out NetworkObject netObj))
         {
             Rigidbody rb = netObj.GetComponent<Rigidbody>();
@@ -77,18 +78,14 @@ public class NetworkedBalance : NetworkBehaviour
                 rightTray.RemoveRb(rb);
             }
         }
-
-        Invoke(nameof(RefreshCheck), 1f);
     }
 
         void Update()
         {
-            if (isCheck.Value)
-            {
                 if (IsServer)
                 {
-                    float leftMass = leftTray.GetTotalMass();
-                    float rightMass = rightTray.GetTotalMass();
+                    leftMass =  leftTray.GetTotalMass();
+                    rightMass = rightTray.GetTotalMass();
 
                     float targetAngle = Mathf.Clamp((rightMass - leftMass) * balanceSensitivity, -maxAngle, maxAngle);
 
@@ -98,5 +95,5 @@ public class NetworkedBalance : NetworkBehaviour
                 currentAngle = Mathf.Lerp(currentAngle, syncedAngle.Value, Time.deltaTime * lerpSpeed);
                 beam.localRotation = Quaternion.Euler(0, -currentAngle, 0);
             }
-        }
+        
     }
